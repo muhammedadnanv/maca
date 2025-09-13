@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manaveg Launch</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+    .card {
+      background-color: #ffe680;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 400px;
+    }
+    .logo {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    .card h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 20px;
+    }
+    .timer {
+      background: white;
+      border-radius: 8px;
+      padding: 15px 20px;
+      display: inline-block;
+      font-size: 20px;
+      color: #444;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="/logo.png" alt="Manaveg Logo" class="logo">
+    <h1>OUR WEBSITE<br>LAUNCH SOON</h1>
+    <div class="timer" id="countdown">Loading...</div>
+  </div>
+
+  <script>
+    // Set the target date to 10 days from now
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 10);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "LAUNCHED!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    }
+
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
