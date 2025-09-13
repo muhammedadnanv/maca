@@ -58,6 +58,20 @@ font-weight: bold;
 .contact a:hover {
 text-decoration: underline;
 }
+    .watermark {
+font-size: 12px;
+color: #888;
+position: absolute;
+bottom: 10px;
+text-align: center;
+}
+.watermark a {
+color: #555;
+text-decoration: none;
+}
+.watermark a:hover {
+text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -103,5 +117,8 @@ text-decoration: underline;
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
+  <div class="watermark">
+Website design & development by <a href="https://adwebcomicagency.vercel.app/" target="_blank">Ad Web Comic Agency</a>
+</div>
 </body>
 </html>
